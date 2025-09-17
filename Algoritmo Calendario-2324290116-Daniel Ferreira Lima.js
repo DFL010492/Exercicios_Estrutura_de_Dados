@@ -1,6 +1,7 @@
 // calendar2025.js
 // Imprime no console o calendário completo do ano 2025
 
+
 function padDay(n) {
   
   return String(n).padStart(2, ' ') + ' ';
@@ -21,8 +22,8 @@ function imprimirMes(year, monthIndex) {
   const diasNoMes = new Date(year, monthIndex + 1, 0).getDate();
 
   const semanas = [];
-  let semana = Array(7).fill('   ');
-  let dow = primeiroDia;
+  let semana = Array(7).fill('   '); 
+  let dow = primeiroDia; 
 
   for (let dia = 1; dia <= diasNoMes; dia++) {
     semana[dow] = padDay(dia);
@@ -34,16 +35,19 @@ function imprimirMes(year, monthIndex) {
     }
   }
 
+  
   if (semana.some(cell => cell.trim() !== '')) {
     semanas.push(semana);
   }
 
-  // imprime cada semana: join com um espaço
+  // imprime cada semana
   for (const s of semanas) {
     console.log(s.join(' '));
   }
 
   console.log("");
+
+}
 
 function imprimirCalendarioAno(year) {
   console.log(`Calendário — Ano ${year}\n`);
