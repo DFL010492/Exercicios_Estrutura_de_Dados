@@ -17,12 +17,12 @@ function imprimirMes(year, monthIndex) {
   console.log(`${meses[monthIndex]} ${year}`);
   console.log("Dom Seg Ter Qua Qui Sex Sáb");
 
-  const primeiroDia = new Date(year, monthIndex, 1).getDay(); // 0 = Dom ... 6 = Sáb
+  const primeiroDia = new Date(year, monthIndex, 1).getDay(); 
   const diasNoMes = new Date(year, monthIndex + 1, 0).getDate();
 
   const semanas = [];
-  let semana = Array(7).fill('   '); // 7 células de 3 espaços (vazias)
-  let dow = primeiroDia; // índice do dia da semana onde começamos a preencher
+  let semana = Array(7).fill('   ');
+  let dow = primeiroDia;
 
   for (let dia = 1; dia <= diasNoMes; dia++) {
     semana[dow] = padDay(dia);
@@ -34,18 +34,16 @@ function imprimirMes(year, monthIndex) {
     }
   }
 
-  // se houver sobra (última semana incompleta), adiciona também
   if (semana.some(cell => cell.trim() !== '')) {
     semanas.push(semana);
   }
 
-  // imprime cada semana: join com um espaço (uma coluna = 3 chars + 1 espaço separador)
+  // imprime cada semana: join com um espaço
   for (const s of semanas) {
     console.log(s.join(' '));
   }
 
-  console.log(""); // linha em branco entre meses
-}
+  console.log("");
 
 function imprimirCalendarioAno(year) {
   console.log(`Calendário — Ano ${year}\n`);
