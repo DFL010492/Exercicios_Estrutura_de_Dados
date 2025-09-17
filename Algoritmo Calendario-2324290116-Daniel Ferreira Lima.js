@@ -1,9 +1,8 @@
 // calendar2025.js
-// Imprime no console o calendário completo do ano 2025 (meses em português),
-// com colunas bem alinhadas (Dom..Sáb).
+// Imprime no console o calendário completo do ano 2025
 
 function padDay(n) {
-  // cada célula terá exatamente 3 caracteres: " 1 ", "10 ", "31 "
+  
   return String(n).padStart(2, ' ') + ' ';
 }
 
